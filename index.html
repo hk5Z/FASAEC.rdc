@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FASAEC - Gestion RH & Paie Officielle | Ministère de la Culture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --fasaec-navy: #002164;
+            --fasaec-red: #CE1126;
+            --fasaec-gold: #FDD100;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            margin: 0;
+            overflow-x: hidden;
+            color: #1e293b;
+        }
+
+        /* Animated Institutional Background - Ken Burns Effect */
+        .bg-institutional {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background-color: #001540;
+        }
+
+        .bg-institutional-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* High-quality ministerial gathering context */
+            background-image: url('https://images.unsplash.com/photo-1577416414929-7a33a4a79591?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2; /* Request for 20% opacity */
+            filter: grayscale(20%) brightness(0.8);
+            animation: kenburns 60s infinite alternate ease-in-out;
+        }
+
+        /* Overlay for text legibility */
+        .bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0, 33, 100, 0.4) 100%);
+        }
+
+        @keyframes kenburns {
+            0% { transform: scale(1) translate(0, 0); }
+            100% { transform: scale(1.2) translate(-2%, -1%); }
+        }
+        
+        .bg-fasaec-navy { background-color: var(--fasaec-navy); }
+        .text-fasaec-navy { color: var(--fasaec-navy); }
+        .border-fasaec-navy { border-color: var(--fasaec-navy); }
+        
+        .bg-fasaec-red { background-color: var(--fasaec-red); }
+        .text-fasaec-red { color: var(--fasaec-red); }
+        .border-fasaec-red { border-color: var(--fasaec-red); }
+        
+        .bg-fasaec-gold { background-color: var(--fasaec-gold); }
+        .text-fasaec-gold { color: var(--fasaec-gold); }
+        .border-fasaec-gold { border-color: var(--fasaec-gold); }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-official {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-official::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--fasaec-gold);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .btn-official:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: var(--fasaec-navy); border-radius: 4px; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "recharts": "https://esm.sh/recharts@^3.6.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div class="bg-institutional">
+        <div class="bg-institutional-image"></div>
+        <div class="bg-overlay"></div>
+    </div>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
